@@ -16,9 +16,8 @@ def on_press_reaction(event):
             for row in cursor:
                 found_word = row[0]
                 if search[0].isupper():
-                    print(words + ": " + str(found_word).capitalize())
-                else:
-                    print(words + ": " + str(found_word).lower())
+                    found_word = str(found_word).capitalize()
+            print(words + ": " + found_word)
         words = ''
     elif event.name == 'backspace':
         if len(words) > 0:
