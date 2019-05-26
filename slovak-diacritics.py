@@ -1,8 +1,8 @@
-import keyboard
 import re
 import sqlite3
-import unidecode
+import keyboard
 import pyperclip
+import unidecode
 
 words = ''
 found_words = []
@@ -20,15 +20,16 @@ def db_search_to_list(search_term):
             found_words.append(str(row[0]).capitalize())
         else:
             found_words.append(str(row[0]))
-    #print(found_words)
+    print(found_words)
 
 
 def place_word(found_word):
     for x in range(len(found_word)+1):
-        keyboard.press('backspace')
+        keyboard.send('backspace')
     pyperclip.copy(found_word)
     keyboard.send('ctrl+v')
     keyboard.press(' ')
+    pyperclip.copy('')
 
 
 def on_press_reaction(event):
@@ -46,19 +47,23 @@ def on_press_reaction(event):
     elif event.name == 'delete':
         found_words = []
     elif event.name == 'right':
-        if len(found_words)>1:
-            #print(str(right_press_counter) + " - " + found_words[right_press_counter])
+        if len(str(words)) > 0:
+            search = unidecode.unidecode(words)
+            found_words = [search]
+            right_press_counter = 1
+            db_search_to_list(search)
+        words = ''
+        if len(found_words) > 1:
+            print(str(right_press_counter) + " - " + found_words[right_press_counter])
             place_word(str(found_words[right_press_counter]))
             right_press_counter = right_press_counter + 1
-            #print("Counter: " + str(right_press_counter))
             if right_press_counter > len(found_words)-1:
                 right_press_counter = 0
     else:
-        #print(event.name)
+        # print(event.name)
         if len(str(event.name)) == 1:
             if re.match("^[A-Za-z0-9_-]*$", event.name):
                 words = words + str(event.name)
-    #conn.close()
 
 
 keyboard.on_press(on_press_reaction)
