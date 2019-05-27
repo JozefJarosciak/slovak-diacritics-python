@@ -1,5 +1,6 @@
 import re
 import sqlite3
+import time
 import keyboard
 import unidecode
 
@@ -59,4 +60,5 @@ def on_press_reaction(event):
 keyboard.on_press(on_press_reaction)
 
 while True:
+    time.sleep(0.05)
     pass
