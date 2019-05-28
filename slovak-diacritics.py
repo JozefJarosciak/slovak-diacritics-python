@@ -18,12 +18,12 @@ def db_search_to_list(search_term):
             found_words.append(str(row[0]).capitalize())
         else:
             found_words.append(str(row[0]))
-    if len(found_words)>1:
+    if len(found_words) > 1:
         print(found_words)
 
 
-def place_word(found_word, trigger):
-    for x in range(len(found_word)+1):
+def place_word(found_word):
+    for x in range(len(found_word) + 1):
         keyboard.send('backspace')
     keyboard.write(found_word)
 
@@ -46,9 +46,9 @@ def on_press_reaction(event):
         words = ''
         if len(found_words) > 1:
             print(str(equal_sign_press_counter) + " - " + found_words[equal_sign_press_counter])
-            place_word(str(found_words[equal_sign_press_counter]), str(event.name))
+            place_word(str(found_words[equal_sign_press_counter]))
             equal_sign_press_counter = equal_sign_press_counter + 1
-            if equal_sign_press_counter > len(found_words)-1:
+            if equal_sign_press_counter > len(found_words) - 1:
                 equal_sign_press_counter = 0
     else:
         # print(event.name)
