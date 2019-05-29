@@ -7,4 +7,4 @@ https://www.joe0.com/2019/05/25/automatically-adding-foreign-diacritics-accents-
 
 To Deploy Windows Executable:
 
-pyinstaller -y -i "C:/code/slovak-diacritics/sk.ico" --add-data "C:/code/slovak-diacritics/sk.ico";"." --add-data "C:/code/slovak-diacritics/sk.db";"." "C:/code/slovak-diacritics/slovak-diacritics.py"
+pyinstaller -y -w -i "C:/code/slovak-diacritics/sk.ico" --add-data "C:/code/slovak-diacritics/sk.db";"." --add-data "C:/code/slovak-diacritics/sk.ico";"." "C:/code/slovak-diacritics/slovak-diacritics.py"
