@@ -39,6 +39,15 @@ labelAddWord.place(x=10, y=30)
 addWord = tkinter.Entry(window, width=30)
 addWord.place(x=100, y=30)
 
+label3 = tkinter.Label(window, text="Návod na použitie:\nPo napísaní akéhokoľvek Slovenského slova bez diakritiky stačí zadať 'spúšťač'"
+                                    "\n(znak ktorý ste si zvolili) a program automaticky doplní mäkčene a dĺžne."
+                                    "\nAk ma dané slovo viacero možných vyznamov, tak opakované stláčanie klávesy "
+                                    "\n'spúšťača' automaticky prejde cez všetky možnosti."
+                                    "\nNapríklad slovo 'stat' môže byť: stáť, sťať, štát atď..."
+                                    "\nV prípade že nejaké slovo nie je v databáze, môžete si ho do databázy pridať."
+                                    "\nDEMO: https://www.youtube.com/watch?v=ejE9HQi7jcw")
+label3.place(x=10, y=60)
+
 label = tkinter.Label(window, text="Posledné nájdene slovo:")
 label.place(x=10, y=180)
 
