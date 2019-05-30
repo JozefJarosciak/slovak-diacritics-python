@@ -14,30 +14,23 @@ showWindow = True
 
 # Initialize the main window
 window = tkinter.Tk()
-window.minsize(400, 200)
+window.minsize(400, 300)
 window.title("Slovenská Diakritika vs 1.0")
 window.wm_iconbitmap("sk.ico")
 
-
-def character_limit(entry_text):
-    if len(entry_text.get()) > 0:
-        entry_text.set(entry_text.get()[-1])
-
-
 # Place UI components
-
 labelUpdateTrigger = tkinter.Label(window, text="Zmeniť Spúšťač:")
 labelUpdateTrigger.place(x=10, y=10)
 
 trigger = tkinter.Entry(window, width=3)
-trigger.place(x=100, y=10)
+trigger.place(x=110, y=10)
 trigger.insert(0, "=")
 
 labelAddWord = tkinter.Label(window, text="Pridať Slovo:")
 labelAddWord.place(x=10, y=30)
 
 addWord = tkinter.Entry(window, width=30)
-addWord.place(x=100, y=30)
+addWord.place(x=110, y=30)
 
 label3 = tkinter.Label(window, text="Návod na použitie:\nPo napísaní akéhokoľvek Slovenského slova bez diakritiky stačí zadať 'spúšťač'"
                                     "\n(znak ktorý ste si zvolili) a program automaticky doplní mäkčene a dĺžne."
@@ -46,10 +39,10 @@ label3 = tkinter.Label(window, text="Návod na použitie:\nPo napísaní akéhok
                                     "\nNapríklad slovo 'stat' môže byť: stáť, sťať, štát atď..."
                                     "\nV prípade že nejaké slovo nie je v databáze, môžete si ho do databázy pridať."
                                     "\nDEMO: https://www.youtube.com/watch?v=ejE9HQi7jcw")
-label3.place(x=10, y=60)
+label3.place(x=10, y=90)
 
 label = tkinter.Label(window, text="Posledné nájdene slovo:")
-label.place(x=10, y=180)
+label.place(x=10, y=270)
 
 
 # Define button press function
