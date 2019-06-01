@@ -21,16 +21,16 @@ ui.setupUi(MainWindow)
 def press():
     # set label
     try:
-        my_list = [ui.textEdit_2.toPlainText().lower(), unidecode.unidecode(ui.textEdit_2.toPlainText().lower())]
+        my_list = [ui.textEdit_2.text().lower(), unidecode.unidecode(ui.textEdit_2.text().lower())]
         print(my_list)
         db_connection = sqlite3.connect('sk.db')
         c = db_connection.cursor()
         c.execute('INSERT INTO "sk_aspell" ("word", "worddf") VALUES (?,?)', my_list)
         db_connection.commit()
         db_connection.close()
-        ui.statusbar.showMessage(f"Slovo '{str(ui.textEdit_2.toPlainText()).lower()}' bolo úspešne vložené do databázy", 5000)
+        ui.statusbar.showMessage(f"Slovo '{str(ui.textEdit_2.text()).lower()}' bolo úspešne vložené do databázy", 5000)
     except Exception:
-        ui.statusbar.showMessage(f"Slovo '{str(ui.textEdit_2.toPlainText()).lower()}' sa už nachádza v databáze!", 5000)
+        ui.statusbar.showMessage(f"Slovo '{str(ui.textEdit_2.text()).lower()}' sa už nachádza v databáze!", 5000)
 
 
 ui.pushButton.clicked.connect(press)
@@ -58,14 +58,14 @@ def place_word(found_word):
 
 def on_press_reaction(event):
     global words, found_words, equal_sign_press_counter
-    if event.name == 'space' or event.name == '.' or event.name == ',' or event.name == ';' or event.name == 'enter':
+    if event.name == 'delete' or event.name == 'space' or event.name == '.' or event.name == ',' or event.name == ';' or event.name == 'enter':
         words = ''
     elif event.name == 'backspace':
         if len(words) > 0:
             words = words[:-1]
     elif event.name == 'delete':
         found_words = []
-    elif event.name == str(ui.textEdit.toPlainText()):
+    elif event.name == str(ui.textEdit.text()):
         if len(str(words)) > 0:
             search = unidecode.unidecode(words)
             found_words = [search]
