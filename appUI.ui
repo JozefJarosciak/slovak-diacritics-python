@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>538</width>
-    <height>150</height>
+    <height>159</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -21,7 +21,7 @@
     <normaloff>sk.ico</normaloff>sk.ico</iconset>
   </property>
   <property name="statusTip">
-   <string>Posledné nájdene slovo:</string>
+   <string/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
@@ -138,7 +138,7 @@
      <x>0</x>
      <y>0</y>
      <width>538</width>
-     <height>18</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuAbout">
@@ -146,9 +146,21 @@
      <string/>
     </property>
    </widget>
+   <widget class="QMenu" name="menuAbout_2">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
    <addaction name="menuAbout"/>
+   <addaction name="menuAbout_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

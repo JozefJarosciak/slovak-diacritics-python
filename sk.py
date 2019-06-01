@@ -21,14 +21,17 @@ ui.setupUi(MainWindow)
 def press():
     # set label
     try:
-        my_list = [ui.textEdit_2.text().lower(), unidecode.unidecode(ui.textEdit_2.text().lower())]
-        print(my_list)
-        db_connection = sqlite3.connect('sk.db')
-        c = db_connection.cursor()
-        c.execute('INSERT INTO "sk_aspell" ("word", "worddf") VALUES (?,?)', my_list)
-        db_connection.commit()
-        db_connection.close()
-        ui.statusbar.showMessage(f"Slovo '{str(ui.textEdit_2.text()).lower()}' bolo úspešne vložené do databázy", 5000)
+        if ui.textEdit_2.text().lower() != unidecode.unidecode(ui.textEdit_2.text().lower()):
+            my_list = [ui.textEdit_2.text().lower(), unidecode.unidecode(ui.textEdit_2.text().lower())]
+            print(my_list)
+            db_connection = sqlite3.connect('sk.db')
+            c = db_connection.cursor()
+            c.execute('INSERT INTO "sk_aspell" ("word", "worddf") VALUES (?,?)', my_list)
+            db_connection.commit()
+            db_connection.close()
+            ui.statusbar.showMessage(f"Slovo '{str(ui.textEdit_2.text()).lower()}' bolo úspešne vložené do databázy", 5000)
+        else:
+            ui.statusbar.showMessage(f"Slovo '{str(ui.textEdit_2.text()).lower()}' neobsahuje diakritiku!", 5000)
     except Exception:
         ui.statusbar.showMessage(f"Slovo '{str(ui.textEdit_2.text()).lower()}' sa už nachádza v databáze!", 5000)
 

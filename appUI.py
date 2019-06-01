@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\code\slovak-diacritics\appUI.ui'
+# Form implementation generated from reading ui file 'appUI.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -11,11 +11,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(538, 150)
+        MainWindow.resize(538, 159)
         MainWindow.setContextMenuPolicy(QtCore.Qt.PreventContextMenu)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("sk.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
+        MainWindow.setStatusTip("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -64,16 +65,22 @@ class Ui_MainWindow(object):
         self.textEdit_2.setObjectName("textEdit_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 538, 18))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 538, 21))
         self.menubar.setObjectName("menubar")
         self.menuAbout = QtWidgets.QMenu(self.menubar)
         self.menuAbout.setTitle("")
         self.menuAbout.setObjectName("menuAbout")
+        self.menuAbout_2 = QtWidgets.QMenu(self.menubar)
+        self.menuAbout_2.setObjectName("menuAbout_2")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.actionAbout = QtWidgets.QAction(MainWindow)
+        self.actionAbout.setObjectName("actionAbout")
+        self.menuAbout_2.addAction(self.actionAbout)
         self.menubar.addAction(self.menuAbout.menuAction())
+        self.menubar.addAction(self.menuAbout_2.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -81,9 +88,10 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Slovenská Diakritika 1.0"))
-        MainWindow.setStatusTip(_translate("MainWindow", "Posledné nájdene slovo:"))
         self.pushButton.setText(_translate("MainWindow", "Vložiť"))
         self.label.setText(_translate("MainWindow", "Spúšťač"))
         self.label_3.setText(_translate("MainWindow", "Pridať Slovo"))
         self.textEdit.setText(_translate("MainWindow", "="))
+        self.menuAbout_2.setTitle(_translate("MainWindow", "Help"))
+        self.actionAbout.setText(_translate("MainWindow", "About"))
 
